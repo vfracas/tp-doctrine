@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search Engine{% endblock %}
+
+{% block body %}
+    <h1>Search Engine</h1>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+    {% for article in articles %}
+        <div>
+            <h1>{{ article.name }}</h1>
+            <img src="{{ asset('image/no-picture.jpg') }}" alt="{{ article.name }} image">
+        </div>
+    {% endfor %}
+    {% if articles is empty %}
+        <h2>Aucun article ne correspond à votre recherche</h2>
+    {% endif %}
+{% endblock %}
